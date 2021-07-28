@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
 
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
 
     return MaterialApp(
       home: HomePage(),
