@@ -1,13 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/circle_container.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import '../widgets/bottom_menu.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      bottomNavigationBar: BottomMenu(items: [
+        BottomMenuItem(icon: Icons.home, label: "Home"),
+        BottomMenuItem(icon: Icons.history, label: "Historial"),
+        BottomMenuItem(icon: Icons.person, label: "Profile"),
+      ],),
       body: SafeArea(
         top: true,
         bottom: true,
