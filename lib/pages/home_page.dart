@@ -1,3 +1,4 @@
+import 'package:firstapp/widgets/avatar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/circle_container.dart';
@@ -26,6 +27,8 @@ class HomePage extends StatelessWidget{
             //mainAxisAlignment: MainAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Avatar(),
+              SizedBox(height:20,),
               Text("Bienvenido"),
               Container(
                 height: 1,
@@ -41,10 +44,10 @@ class HomePage extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.center,
                 //mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  CircleContainer(child: Icon(Icons.add), width: 55, height: 55),
+                  CircleContainer(child: Icon(Icons.add), size: 55),
                   //Container(width: 20,),
                   SizedBox(width: 5,),
-                  CircleContainer(child: Icon(Icons.remove), width: 55, height: 55),
+                  CircleContainer(child: Icon(Icons.remove), size: 55),
                   // Container(width: 80, height: 80, color: Colors.blueAccent,),
                   // Container(width: 120, height: 120, color: Colors.blueAccent,),
                 ],
