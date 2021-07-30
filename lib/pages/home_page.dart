@@ -67,7 +67,34 @@ class _HomePageState extends State<HomePage> {
                   setState(() {
                     _fontSize++;
                   });
-                })
+                }),
+                SizedBox(height: 15,),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: 
+                      Container(
+                        color: Colors.purpleAccent,
+                        width: 50,
+                        height: 50,
+                      ),
+                    ),
+                    Container(
+                      color: Colors.purple[900],
+                      width: 50,
+                      height: 50,
+                    ),
+                    Expanded(
+                      child: 
+                      Container(
+                        color: Colors.purple,
+                        width: 50,
+                        height: 50,
+                      ),
+                      flex: 3
+                    ),
+                  ],
+                ),
               /*
               TextButton(
                 child: Text("Upload"),

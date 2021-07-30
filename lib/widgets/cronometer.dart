@@ -34,7 +34,7 @@ class CronometerState extends State <Cronometer> with AfterLayoutMixin{
   }
 
   void _stop(){
-    _stop();
+    _timer.cancel();
   }
 
   @override
@@ -63,7 +63,7 @@ class CronometerState extends State <Cronometer> with AfterLayoutMixin{
 
   @override
   void dispose() {
-    _timer.cancel();
+    _stop();
     super.dispose();
   }
 
