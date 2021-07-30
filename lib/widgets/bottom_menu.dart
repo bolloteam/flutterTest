@@ -25,21 +25,27 @@ BottomMenu({required this.items}):assert(items.length > 0);
             children: List.generate(items.length, (index) {
 
               final BottomMenuItem item = items[index];
-                return CupertinoButton(
-                  padding: EdgeInsets.zero,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Icon(item.icon),
-                      SizedBox(height: 3),
-                      Text(
-                        item.label,
-                        style: TextStyle(fontSize: 12, color: Colors.blue) ,
-                      )
-                    ],
-                  ),
-                  onPressed: (){}
-                  );
+                return 
+                Expanded(
+                  child: Container(
+                    color: Colors.tealAccent,
+                    child: CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Icon(item.icon),
+                          SizedBox(height: 3),
+                          Text(
+                            item.label,
+                            style: TextStyle(fontSize: 12, color: Colors.blue) ,
+                          )
+                        ],
+                      ),
+                      onPressed: (){}
+                    ), 
+                  )
+                );
                /*
                return Column(
                   mainAxisSize: MainAxisSize.min,
