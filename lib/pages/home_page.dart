@@ -39,6 +39,16 @@ class HomePage extends StatelessWidget{
                 color: Color(0xffaaaaaa),
               ),
               Text("Manuel Rivas", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              TextButton(
+                child: Text("Upload"),
+                onPressed: () {  }, 
+                ),
+              CupertinoButton(
+                child: Text("Upload"),
+                color: Colors.blue,
+                onPressed: () {  }, 
+                ),
+              /*
               SizedBox(height: 20,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +61,7 @@ class HomePage extends StatelessWidget{
                   // Container(width: 80, height: 80, color: Colors.blueAccent,),
                   // Container(width: 120, height: 120, color: Colors.blueAccent,),
                 ],
-              )
+              )*/
             ],
           ),
         ),
