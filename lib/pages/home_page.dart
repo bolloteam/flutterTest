@@ -1,3 +1,4 @@
+import 'package:firstapp/pages/chat_page.dart';
 import 'package:firstapp/widgets/avatar.dart';
 import 'package:firstapp/widgets/my_appbar.dart';
 import 'package:flutter/cupertino.dart';
@@ -49,7 +50,12 @@ class _HomePageState extends State<HomePage> {
           color: Colors.white,
           child: Column(
             children: [
-              MyAppBar(),
+              MyAppBar(
+                leftIcon: Icons.person, 
+                rightIcon: Icons.message,
+                onLeftClick: ()=> Navigator.pop(context),
+                onRightClick: (){},
+                ),
               Expanded(child:
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,//default value
@@ -86,6 +92,15 @@ class _HomePageState extends State<HomePage> {
                       onPressed: (){
                         setState(() {
                           _fontSize++;
+                        });
+                      }),
+                      SizedBox(height:15),
+                      CupertinoButton(child: Text("Go to Chat"),
+                      color: Colors.greenAccent,
+                      onPressed: (){
+                        setState(() {
+                          final route = MaterialPageRoute(builder: (BuildContext _context)=>ChatPage());
+                          Navigator.push(context, route);
                         });
                       }),
                       SizedBox(height: 15,),

@@ -2,7 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget {
-  MyAppBar({Key? key}) : super(key: key);
+
+  final IconData leftIcon, rightIcon;
+  final VoidCallback onLeftClick, onRightClick;
+
+  MyAppBar(
+    {Key? key, 
+    required this.leftIcon, 
+    required this.rightIcon, 
+    required this.onLeftClick, 
+    required this.onRightClick}) 
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +24,8 @@ class MyAppBar extends StatelessWidget {
         children: <Widget>[
           CupertinoButton(
             padding: EdgeInsets.all(15),
-            child: Icon(Icons.person), 
-            onPressed: (){}),
+            child: Icon(leftIcon, ), 
+            onPressed: onLeftClick),
           Text("AppBar", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400,)),
           CupertinoButton(
             padding: EdgeInsets.all(15),
@@ -27,7 +37,7 @@ class MyAppBar extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.all(15),
-                  child: Icon(Icons.message),
+                  child: Icon(rightIcon),
                 ),
                 Positioned(
                   right: 12,
@@ -43,7 +53,7 @@ class MyAppBar extends StatelessWidget {
                 ),
               ],
             ), 
-            onPressed: (){}),
+            onPressed: onRightClick),
         ],
       ),
     );
