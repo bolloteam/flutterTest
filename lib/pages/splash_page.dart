@@ -1,4 +1,5 @@
 import 'package:after_layout/after_layout.dart';
+import 'package:firstapp/pages/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ class _SplashPageState extends State<SplashPage> with AfterLayoutMixin {
   void afterFirstLayout(BuildContext context) {
     Future.delayed(Duration(seconds: 2)).then((_){
       print("Ir a Home");
-      Navigator.pushNamed(context, 'home');
+      Navigator.pushReplacementNamed(context, 'home');
     });
   }
 }

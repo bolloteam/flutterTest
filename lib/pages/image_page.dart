@@ -1,8 +1,16 @@
 import 'package:firstapp/widgets/my_appbar.dart';
 import 'package:flutter/material.dart';
 
-class ImagePage extends StatefulWidget {
+class ImagesPageArgs{
+  final String username;
+  final bool isActive;
 
+  ImagesPageArgs({required this.username, required this.isActive});
+}
+
+
+class ImagePage extends StatefulWidget {
+  static final routeName = 'images';
   ImagePage({Key? key}) : super(key: key);
 
   @override
@@ -12,6 +20,12 @@ class ImagePage extends StatefulWidget {
 class _ImagePageState extends State<ImagePage> {
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as ImagesPageArgs;
+    //final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+
+
+
+
     return Scaffold(
       body: 
       SafeArea(
@@ -27,7 +41,7 @@ class _ImagePageState extends State<ImagePage> {
                 onRightClick: (){}),
               Expanded(
                 child: Center(
-                  child: Text("Image Page"),
+                  child: Text("${args.username} is active?: ${args.isActive}"),
                 ),),
             ],
           ),

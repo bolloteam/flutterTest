@@ -1,4 +1,5 @@
 import 'package:firstapp/pages/chat_page.dart';
+import 'package:firstapp/pages/image_page.dart';
 import 'package:firstapp/widgets/avatar.dart';
 import 'package:firstapp/widgets/my_appbar.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,6 +10,7 @@ import '../widgets/cronometer.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget{
+  static final routeName = 'homepage';
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -54,7 +56,9 @@ class _HomePageState extends State<HomePage> {
                 leftIcon: Icons.person, 
                 rightIcon: Icons.message,
                 onLeftClick: (){
-                          Navigator.pushNamed(context, "images");
+                  Navigator.pushNamed(
+                    context, ImagePage.routeName, 
+                    arguments: ImagesPageArgs(username: "Manuel", isActive: true));
                   },
                 onRightClick: (){
                   final route = MaterialPageRoute(
