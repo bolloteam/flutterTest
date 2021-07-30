@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget{
 class _HomePageState extends State<HomePage> {
 
   bool _isEnabled = false;
+  double _fontSize = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Text("Manuel Rivas", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               _isEnabled==true
-                ? Cronometer(initTime: 20, fontSize: 40,)
+                ? Cronometer(initTime: 20, fontSize: _fontSize,)
                 : Container(),
                 SizedBox(height:15),
                 CupertinoButton(child: Text("enabled: $_isEnabled"),
@@ -57,6 +58,14 @@ class _HomePageState extends State<HomePage> {
                 onPressed: (){
                   setState(() {
                     _isEnabled = !_isEnabled;
+                  });
+                }),
+                SizedBox(height:15),
+                CupertinoButton(child: Text("new FontSize"),
+                color: Colors.greenAccent,
+                onPressed: (){
+                  setState(() {
+                    _fontSize++;
                   });
                 })
               /*

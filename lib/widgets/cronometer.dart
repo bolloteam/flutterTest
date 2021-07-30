@@ -1,8 +1,8 @@
-import 'dart:async';
-
 import 'package:firstapp/widgets/circle_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:after_layout/after_layout.dart';
+import 'dart:async';
 
 class Cronometer extends StatefulWidget {
  final double initTime, fontSize;
@@ -13,7 +13,7 @@ class Cronometer extends StatefulWidget {
    CronometerState createState() =>  CronometerState();
 }
 
-class CronometerState extends State <Cronometer> {
+class CronometerState extends State <Cronometer> with AfterLayoutMixin{
   double _time = 0;
   Timer _timer = Timer.periodic(Duration(seconds: 1), (timer) { });
 
@@ -34,7 +34,31 @@ class CronometerState extends State <Cronometer> {
   }
 
   void _stop(){
-    _timer.cancel();
+    _stop();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didUpdateWidget (Cronometer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print("old FontSize: $oldWidget.fontSize");
+    print("new FontSize: $widget.fontSize");
+    
+  }
+
+  @override
+  void afterFirstLayout(BuildContext context) {
+    showDialog(
+      context: context, 
+      builder: (BuildContext context){
+      return AlertDialog(
+        title: Text("AfterFirstLayout"),
+      );
+    });
   }
 
   @override
