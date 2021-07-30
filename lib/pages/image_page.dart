@@ -1,17 +1,15 @@
 import 'package:firstapp/widgets/my_appbar.dart';
 import 'package:flutter/material.dart';
 
-class ChatPage extends StatefulWidget {
-  
-  final String userName;
+class ImagePage extends StatefulWidget {
 
-  ChatPage({Key? key, required this.userName}) : super(key: key);
+  ImagePage({Key? key}) : super(key: key);
 
   @override
-  _ChatPageState createState() => _ChatPageState();
+  _ImagePageState createState() => _ImagePageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _ImagePageState extends State<ImagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +27,7 @@ class _ChatPageState extends State<ChatPage> {
                 onRightClick: (){}),
               Expanded(
                 child: Center(
-                  child: Text(widget.userName),
+                  child: Text("Image Page"),
                 ),),
             ],
           ),

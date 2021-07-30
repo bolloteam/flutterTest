@@ -53,9 +53,16 @@ class _HomePageState extends State<HomePage> {
               MyAppBar(
                 leftIcon: Icons.person, 
                 rightIcon: Icons.message,
-                onLeftClick: ()=> Navigator.pop(context),
-                onRightClick: (){},
-                ),
+                onLeftClick: (){
+                          Navigator.pushNamed(context, "images");
+                  },
+                onRightClick: (){
+                  final route = MaterialPageRoute(
+                            builder: (BuildContext _context)=>ChatPage(
+                              userName: "Manuel",
+                              ));
+                          Navigator.push(context, route);
+                  }),
               Expanded(child:
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,//default value
@@ -99,7 +106,10 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.greenAccent,
                       onPressed: (){
                         setState(() {
-                          final route = MaterialPageRoute(builder: (BuildContext _context)=>ChatPage());
+                          final route = MaterialPageRoute(
+                            builder: (BuildContext _context)=>ChatPage(
+                              userName: "Manuel",
+                              ));
                           Navigator.push(context, route);
                         });
                       }),
