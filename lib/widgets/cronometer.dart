@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firstapp/widgets/circle_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +15,32 @@ class Cronometer extends StatefulWidget {
 
 class CronometerState extends State <Cronometer> {
   double _time = 0;
+  Timer _timer = Timer.periodic(Duration(seconds: 1), (timer) { });
 
   @override
   void initState() { 
     super.initState();
     print("InitState");
     _time = widget.initTime; //initialitate from a widget parameter
+  }
+
+  void _start(){
+  _timer = Timer.periodic(Duration(seconds: 1), (Timer _) {
+      //print("timer");
+      setState(() {
+        _time += 1;
+      });
+    });
+  }
+
+  void _stop(){
+    _timer.cancel();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
 
@@ -35,18 +57,12 @@ class CronometerState extends State <Cronometer> {
             children: <Widget>[
               CupertinoButton(
                 child: CircleContainer(child: Icon(Icons.play_arrow), size: 55), 
-                onPressed: (){
-                  setState(() {
-                    _time = _time - 1;
-                  });
-                }),
+                onPressed: _start
+              ),
               CupertinoButton(
                 child: CircleContainer(child: Icon(Icons.stop), size: 55), 
-                onPressed: (){
-                  setState(() {
-                    _time = _time + 1;
-                  });
-                }),
+                onPressed: _stop
+                ),
             ],
           ),
         ],

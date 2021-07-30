@@ -6,7 +6,15 @@ import '../widgets/bottom_menu.dart';
 import '../widgets/cronometer.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 
-class HomePage extends StatelessWidget{
+class HomePage extends StatefulWidget{
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  bool _isEnabled = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +48,17 @@ class HomePage extends StatelessWidget{
                 color: Color(0xffaaaaaa),
               ),
               Text("Manuel Rivas", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-              Cronometer(initTime: 20, fontSize: 40,),
+              _isEnabled==true
+                ? Cronometer(initTime: 20, fontSize: 40,)
+                : Container(),
+                SizedBox(height:15),
+                CupertinoButton(child: Text("enabled: $_isEnabled"),
+                color: Colors.blueAccent,
+                onPressed: (){
+                  setState(() {
+                    _isEnabled = !_isEnabled;
+                  });
+                })
               /*
               TextButton(
                 child: Text("Upload"),
