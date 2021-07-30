@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/circle_container.dart';
 import '../widgets/bottom_menu.dart';
+import '../widgets/cronometer.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatelessWidget{
@@ -39,6 +40,8 @@ class HomePage extends StatelessWidget{
                 color: Color(0xffaaaaaa),
               ),
               Text("Manuel Rivas", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              Cronometer(initTime: 20, fontSize: 40,),
+              /*
               TextButton(
                 child: Text("Upload"),
                 onPressed: () {  }, 
@@ -47,7 +50,7 @@ class HomePage extends StatelessWidget{
                 child: Text("Upload"),
                 color: Colors.blue,
                 onPressed: () {  }, 
-                ),
+                ),*/
               /*
               SizedBox(height: 20,),
               Row(
