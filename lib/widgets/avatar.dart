@@ -33,7 +33,15 @@ class _AvatarState extends State<Avatar> {
         children: <Widget>[
           _file == null
           ? SvgPicture.network('https://image.flaticon.com/icons/svg/1177/1177568.svg')
-          : Image.file(_file!),
+          : ClipRRect(
+            borderRadius: BorderRadius.circular(100),
+            child:Image.file(
+              _file!,
+              height: 200,
+              width: 200,
+              fit: BoxFit.cover,
+              )
+          ),
           /*
           Container(color: Colors.red, width: 100, height: 100,),
           Container(color: Colors.green, width: 50, height: 50,),
