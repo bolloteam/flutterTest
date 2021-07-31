@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> with AfterLayoutMixin {
   void afterFirstLayout(BuildContext context) {
     Future.delayed(Duration(seconds: 2)).then((_){
       print("Ir a Home");
-      Navigator.pushReplacementNamed(context, 'home');
+      Navigator.pushReplacementNamed(context, HomePage.routeName);
     });
   }
 }
